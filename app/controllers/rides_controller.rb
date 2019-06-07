@@ -1,4 +1,5 @@
 class RidesController < ApplicationController
+<<<<<<< HEAD
   def create
     attraction = Attraction.find(params[:ride][:attraction_id])
 
@@ -37,4 +38,6 @@ class RidesController < ApplicationController
       flash[:alert] << "You do not have enough tickets to ride the #{attraction.name}."
     end
   end
+=======
+>>>>>>> 648082043b1e49101b404ee1868e68480e751729
 end
