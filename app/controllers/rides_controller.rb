@@ -2,6 +2,10 @@ class RidesController < ApplicationController
   def create
     attraction = Attraction.find(params[:ride][:attraction_id])
 
+    if current_user.name == "THIS ONE"
+      binding.pry
+    end
+
     if height_check(attraction) || tickets_check(attraction)
       redirect_to user_path(current_user)
     else
@@ -33,7 +37,6 @@ class RidesController < ApplicationController
   end
 
   def tickets_check(attraction)
-    binding.pry
     if current_user.tickets < attraction.tickets
       flash[:alert] ||= []
       flash[:alert] << "You do not have enough tickets to ride the #{attraction.name}."
