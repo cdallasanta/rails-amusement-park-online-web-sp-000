@@ -31,13 +31,9 @@
 
     <!-- content -->
     <div class="container"  role="main">
-      <% if flash.alert %>
+      <% if flash[:alert] %>
         <div class="alert">
-          <ul>
-            <% flash[:alert].each do |alert| %>
-              <li><%= alert %></li>
-            <% end %>
-          </ul>
+          <%= flash[:alert] %>
         </div>
       <% end %>
 
