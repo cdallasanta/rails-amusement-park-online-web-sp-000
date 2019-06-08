@@ -28,17 +28,5 @@ class RidesController < ApplicationController
     params.require(:ride).permit(:attraction_id)
   end
 
-  def height_check(attraction)
-    if current_user.height < attraction.min_height
-      flash[:alert] ||= []
-      flash[:alert] << "You are not tall enough to ride the #{attraction.name}."
-    end
-  end
 
-  def tickets_check(attraction)
-    if current_user.tickets < attraction.tickets
-      flash[:alert] ||= []
-      flash[:alert] << "You do not have enough tickets to ride the #{attraction.name}."
-    end
-  end
 end
