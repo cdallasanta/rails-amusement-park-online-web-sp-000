@@ -3,6 +3,7 @@ class Ride < ApplicationRecord
   belongs_to :attraction
 
   def take_ride
+    
   end
 
   def update_user
