@@ -3,6 +3,10 @@ class AttractionsController < ApplicationController
     @attractions = Attraction.all
   end
 
+  def new
+    @attraction = Attraction.new
+  end
+
   def show
     @attraction = Attraction.find(params[:id])
   end
@@ -14,6 +18,10 @@ class AttractionsController < ApplicationController
     else
       redirect_to new_attraction_path
     end
+  end
+
+  def edit
+    @attraction = Attraction.find(params[:id])
   end
 
   private
