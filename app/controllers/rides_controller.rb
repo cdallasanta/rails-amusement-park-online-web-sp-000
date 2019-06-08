@@ -11,7 +11,7 @@ class RidesController < ApplicationController
 
       if ride.save
         ride.update_user
-        binding.pry
+        flash[:alert] ||= []
         flash[:alert] << "Thanks for riding the #{attraction.name}!"
         redirect_to user_path(ride.user)
       else
@@ -28,12 +28,14 @@ class RidesController < ApplicationController
 
   def height_check(attraction)
     if current_user.height < attraction.min_height
+      flash[:alert] ||= []
       flash[:alert] << "You are not tall enough to ride the #{attraction.name}."
     end
   end
 
   def tickets_check(attraction)
     if current_user.tickets < attraction.tickets
+      flash[:alert] ||= []
       flash[:alert] << "You do not have enough tickets to ride the #{attraction.name}."
     end
   end
