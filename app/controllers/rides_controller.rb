@@ -33,6 +33,7 @@ class RidesController < ApplicationController
   end
 
   def tickets_check(attraction)
+    binding.pry
     if current_user.tickets < attraction.tickets
       flash[:alert] ||= []
       flash[:alert] << "You do not have enough tickets to ride the #{attraction.name}."
