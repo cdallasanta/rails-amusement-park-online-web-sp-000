@@ -1,4 +1,4 @@
-<%= form_for Attraction.new do |f| %>
+<%= form_for @attraction do |f| %>
   Name: <%= f.text_field :name %><br>
   Height Requirement (in inches) <%= f.text_field :min_height %><br>
   How fun is it? (1-5 scale) <%= f.text_field :happiness_rating %><br>
