@@ -14,6 +14,8 @@ class Ride < ApplicationRecord
     if errors == ""
       update_user
     end
+
+    errors
   end
 
   def update_user
