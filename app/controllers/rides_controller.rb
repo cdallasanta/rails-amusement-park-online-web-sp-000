@@ -6,6 +6,7 @@ class RidesController < ApplicationController
     ride.save
 
     flash[:alert] = ride.take_ride
+    binding.pry
     if flash[:alert]
       redirect_to user_path(ride.user)
     else
