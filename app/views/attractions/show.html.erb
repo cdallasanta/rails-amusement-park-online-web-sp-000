@@ -2,6 +2,7 @@
 Fun Factor: <%= @attraction.happiness_rating %>
 Nausea Rating: <%= @attraction.nausea_rating %>
 Ticket cost: <%= @attraction.tickets %>
+Minimum Height: <%= @attraction.min_height %>
 
 <%= form_for Ride.new do |f| %>
   <%= f.hidden_field :attraction_id, value: @attraction.id %>
