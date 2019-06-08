@@ -3,7 +3,17 @@ class Ride < ApplicationRecord
   belongs_to :attraction
 
   def take_ride
-    
+    errors = ""
+    if self.user.height < self.attraction.min_height
+      errors << "You are not tall enough to ride the #{attraction.name}."
+    end
+    if self.user.tickets < self.attraction.tickets
+      errors << "You do not have enough tickets to ride the #{attraction.name}."
+    end
+
+    if errors == ""
+      update_user
+    end
   end
 
   def update_user
