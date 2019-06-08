@@ -2,11 +2,10 @@ class RidesController < ApplicationController
   def create
     attraction = Attraction.find(params[:ride][:attraction_id])
 
-    if current_user.name == "THIS ONE"
-      binding.pry
-    end
+    height_check(attraction)
+    tickets_check(attraction)
 
-    if height_check(attraction) || tickets_check(attraction)
+    if flash[:alert]
       redirect_to user_path(current_user)
     else
       ride = Ride.new(ride_params)
