@@ -7,7 +7,7 @@ class RidesController < ApplicationController
 
     flash[:alert] = ride.take_ride
     if flash[:alert]
-      redirect_to attraction_path(Attraction.find(params[:attraction_id]))
+      redirect_to attraction_path(ride.attraction))
     else
       flash[:alert] << "Thanks for riding the #{attraction.name}!"
       redirect_to user_path(ride.user)
