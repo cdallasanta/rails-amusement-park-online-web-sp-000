@@ -3,7 +3,6 @@ class RidesController < ApplicationController
     attraction = Attraction.find(params[:ride][:attraction_id])
 
     if height_check(attraction) || tickets_check(attraction)
-      binding.pry
       redirect_to user_path(current_user)
     else
       ride = Ride.new(ride_params)
